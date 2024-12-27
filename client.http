@@ -1,0 +1,44 @@
+### Define variables
+@host = localhost
+@port = 8080
+@baseUrl = http://{{host}}:{{port}}
+###
+GET  {{baseUrl}}
+
+
+###
+GET {{baseUrl}}/product
+
+
+###
+GET {{baseUrl}}/product/2
+
+
+###
+POST {{baseUrl}}/product
+Content-Type: application/json
+
+{
+ "name" : "Table",
+  "price": 300.00,
+  "quantity" : 234
+}
+
+
+###
+PUT {{baseUrl}}/product/1
+Content-Type: application/json
+
+{
+  "name": "Chair",
+  "price": 199.99,
+  "quantity": 200
+}
+
+
+###
+DELETE  {{baseUrl}}/product/4
+
+
+
+

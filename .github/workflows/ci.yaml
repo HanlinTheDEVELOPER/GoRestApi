@@ -11,8 +11,8 @@ jobs:
       - name: Mysql setup
         run: |
           sudo /etc/init.d/mysql start
-          mysql -u root -p root -e "ALTER USER '${DB_User}'@'localhost' IDENTIFIED BY '${DB_Password}';"
-          mysql -u root -p${DB_Password} -e "create database ${DB_Name};"
+          mysql -uroot -proot -e "ALTER USER '${DB_User}'@'localhost' IDENTIFIED BY '${DB_Password}';"
+          mysql -uroot -p${DB_Password} -e "create database ${DB_Name};"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set Up Go

@@ -15,8 +15,8 @@ type App struct {
 	Db     *sql.DB
 }
 
-func (app *App) Initialize() {
-	connectionString := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v", USERNAME, PASSWORD, HOST, DBPORT, DBNAME)
+func (app *App) Initialize(Username string, Password string, DbName string) {
+	connectionString := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v", Username, Password, HOST, DBPORT, DbName)
 	var err error
 	app.Db, err = sql.Open("mysql", connectionString)
 	if err != nil {

@@ -12,8 +12,8 @@ var app App
 
 func TestMain(m *testing.M) {
 	app.Initialize(USERNAME, PASSWORD, "test")
-	m.Run()
 	createTable()
+	m.Run()
 }
 
 func createTable() {

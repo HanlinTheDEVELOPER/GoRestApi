@@ -36,17 +36,17 @@ func clearTable() {
 }
 
 func addProduct(name string, price float64, quantity int) {
-	insertQuery := fmt.Sprintf("INSERT INTO inventory(name, price, quantity) VALUES('%v', %v, %v)", name, price, quantity)
-	_, err := app.Db.Exec(insertQuery, name, price, quantity)
+	insertQuery := fmt.Sprintf("INSERT INTO inventory(name, price, quantity) VALUES('%v', %v, %v);", name, price, quantity)
+	_, err := app.Db.Exec(insertQuery)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err, "err")
 	}
 }
 
 func TestGetProducts(t *testing.T) {
 	clearTable()
 	addProduct("keyboard", 50, 5)
-	request, _ := http.NewRequest("GET", "/product/1", nil)
+	request, _ := http.NewRequest("GET", "/product", nil)
 	response := sendRequest(request)
 	checkResponseCode(t, http.StatusOK, response.Code)
 

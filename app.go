@@ -24,6 +24,7 @@ func (app *App) Initialize(Username string, Password string, DbName string) {
 	}
 
 	app.Router = mux.NewRouter().StrictSlash(true)
+	app.handleRoutes()
 }
 
 func (app *App) Run() {
